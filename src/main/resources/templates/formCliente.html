@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Cliente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50">
+<nav class="bg-white border-b border-gray-200 p-4 mb-10"><div class="max-w-screen-xl mx-auto"><a href="/" class="text-xl font-bold text-gray-900">&larr; Volver</a></div></nav>
+
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow border border-gray-200">
+    <h2 class="text-2xl font-bold mb-6 text-gray-900">Registrar Cliente</h2>
+    <form th:action="@{/guardarCliente}" th:object="${cliente}" method="post">
+
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" th:field="*{cedula}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-focus:-translate-y-6">Cédula</label>
+        </div>
+
+        <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" th:field="*{nombre}" class="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 focus:border-blue-600 peer placeholder-transparent" placeholder=" " required />
+                <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-focus:-translate-y-6">Nombre</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="text" th:field="*{apellido}" class="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 focus:border-blue-600 peer placeholder-transparent" placeholder=" " required />
+                <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-focus:-translate-y-6">Apellido</label>
+            </div>
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" th:field="*{direccion}" class="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 focus:border-blue-600 peer placeholder-transparent" placeholder=" " required />
+            <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-focus:-translate-y-6">Dirección</label>
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="date" th:field="*{fecha_nacimiento}" class="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 focus:border-blue-600 peer" required />
+            <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-focus:-translate-y-6">Fecha Nacimiento</label>
+        </div>
+
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5">Guardar</button>
+    </form>
+</div>
+</body>
+</html>
